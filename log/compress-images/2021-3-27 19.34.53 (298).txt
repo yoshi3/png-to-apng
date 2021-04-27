@@ -1,0 +1,7 @@
+File from: [src/**/*.png]
+
+File to: [-]
+
+Compression algorithm: [-]
+
+Description:  Directory is empty!: 
