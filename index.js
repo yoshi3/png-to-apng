@@ -26,7 +26,6 @@ generateApng = async (fileList, loopCount, fps) => {
   fs.mkdirSync(OUTPUT_ANIMETION_PATH );
   }
   try {
-    console.log(loopCount);
     Assembler.assembleSync(
         `${OUTPUT_PATH}*.png`,
         `${OUTPUT_ANIMETION_PATH }${fileList[0].replace(/(.*?)_[0-9](\.png)/, '$1$2')}`,
