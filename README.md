@@ -13,3 +13,5 @@ npm run compress
 ```
 
 `./output`直下に圧縮されたpngが、`./output/apng`にapng化されたpngが配置される。
+
+<img width="600" src="https://yoshi3.github.io/ping-to-aping/usage.gif">
