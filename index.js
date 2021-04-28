@@ -26,15 +26,16 @@ generateApng = async (fileList, loopCount, fps) => {
   fs.mkdirSync(OUTPUT_ANIMETION_PATH );
   }
   try {
-  Assembler.assembleSync(
-      `${OUTPUT_PATH}*.png`,
-      `${OUTPUT_ANIMETION_PATH }${fileList[0].replace(/(.*?)_[0-9](\.png)/, '$1$2')}`,
-      {
-          loopCount,
-          frameDelay: 1000/fps,
-          compression: Assembler.COMPRESS_7ZIP
-      }
-  );
+    console.log(loopCount);
+    Assembler.assembleSync(
+        `${OUTPUT_PATH}*.png`,
+        `${OUTPUT_ANIMETION_PATH }${fileList[0].replace(/(.*?)_[0-9](\.png)/, '$1$2')}`,
+        {
+            loopCount,
+            frameDelay: 1000/fps,
+            compression: Assembler.COMPRESS_7ZIP
+        }
+    );
   } catch (e) {
     console.error(`Failed to assemble: ${e.message}`);
     console.error(`stdout: ${e.stdout}`);
@@ -46,8 +47,8 @@ main = async () => {
   let areCorrectFileNames = false;
   let fileList = [];
   let isDoAll = false;
-  let loopCount = 0;
-  let fps = 10;
+  let loopCount = 1;
+  let fps = 24;
 
   fs.removeSync(OUTPUT_PATH);
 
@@ -63,8 +64,8 @@ main = async () => {
       return;
     }
 
-    loopCount = readlineSync.question('loop数を入力してください (default: 0): ') || loopCount;
-    fps = readlineSync.question('FPS値を入力してください (default: 10): ') || fps;
+    loopCount = readlineSync.question(`loop数を入力してください (default: ${loopCount}): `) || loopCount;
+    fps = readlineSync.question(`FPS値を入力してください (default: ${fps}): `) || fps;
 
     isDoAll = /y/i.test(readlineSync.question(`処理を実行しますか? (loop数: ${loopCount}, fps: ${fps})  Y/N: `));
 
