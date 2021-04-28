@@ -28,7 +28,7 @@ generateApng = async (fileList, loopCount, fps) => {
   try {
     Assembler.assembleSync(
         `${OUTPUT_PATH}*.png`,
-        `${OUTPUT_ANIMETION_PATH }${fileList[0].replace(/(.*?)_[0-9](\.png)/, '$1$2')}`,
+        `${OUTPUT_ANIMETION_PATH }${fileList[0].replace(/(.*?)_[0-9].+?(\.png)/, '$1$2')}`,
         {
             loopCount,
             frameDelay: 1000/fps,
