@@ -71,6 +71,7 @@ main = async () => {
     if(isDoAll) {
       await comparess();
       await generateApng(fileList, loopCount, fps);
+      console.log('処理が完了しました。');
     } else {
       console.log('処理を終了します。');
     }
