@@ -57,12 +57,7 @@ main = async () => {
         return fs.statSync(`${INPUT_DIR}/${file}`).isFile() && /.*\.png$/.test(file);
     })
     console.log(fileList);
-    areCorrectFileNames = /y/i.test(readlineSync.question('ファイルは name_0から始まる連番.png となっていますか？ (e,g: hoge_0.png, hoge_2.png)  Y/N: '));
-    if (!areCorrectFileNames) {
-      console.log('処理を終了します。');
-      return;
-    }
-
+    console.log('ファイルは末尾が小さい順でアニメーション化されます (e,g: hoge000.png -> hoge002.png -> hoge012)');
     loopCount = readlineSync.question(`loop数を入力してください (default: ${loopCount}): `) || loopCount;
     fps = readlineSync.question(`FPS値を入力してください (default: ${fps}): `) || fps;
 
