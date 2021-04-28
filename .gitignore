@@ -150,4 +150,4 @@ dist
 .pnp.*
 
 .log/
-
+.output/
